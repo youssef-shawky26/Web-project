@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login or Register | Airport Booking System</title>
+
+  <!-- Font (needs internet; the page still works without it) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared styles first, then this page's styles -->
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="auth-page">
+
+  <main class="auth-layout">
+
+    <!-- ===== LEFT SIDE: brand and welcome text ===== -->
+    <section class="auth-intro">
+      <div class="brand">
+        <!-- Simple airplane icon (inline SVG) -->
+        <svg viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+        <span>SkyPort Airport</span>
+      </div>
+
+      <h1>Book your next flight with ease</h1>
+      <p>Browse upcoming flights, choose your seat and manage your booking in one place.</p>
+    </section>
+
+    <!-- ===== RIGHT SIDE: login / registration card ===== -->
+    <section class="auth-card">
+
+      <!-- Tab buttons: auth.js switches between the two forms -->
+      <div class="tabs">
+        <button type="button" id="login-tab" class="active">Login</button>
+        <button type="button" id="register-tab">Register</button>
+      </div>
+
+      <!-- ========== LOGIN FORM ========== -->
+      <form id="login-form" class="panel active">
+        <h2>Welcome back</h2>
+        <p class="subtitle">Choose your account type and log in.</p>
+
+        <!-- Role choice: decides which portal opens after login -->
+        <div class="role-options">
+          <label>
+            <input type="radio" name="role" value="customer" checked>
+            Customer
+          </label>
+          <label>
+            <input type="radio" name="role" value="manager">
+            Manager
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="login-email">Email or username</label>
+          <input type="text" id="login-email" placeholder="you@example.com" autocomplete="username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" class="btn btn-block">Login</button>
+
+        <p class="switch-text">
+          Don't have an account?
+          <button type="button" id="go-register" class="link-btn">Register here</button>
+        </p>
+      </form>
+
+      <!-- ========== REGISTRATION FORM (customers only) ========== -->
+      <form id="register-form" class="panel">
+        <h2>Create your account</h2>
+        <p class="subtitle">Customer registration</p>
+
+        <div class="form-group">
+          <label for="reg-name">Full name</label>
+          <input type="text" id="reg-name" placeholder="Ahmed Hassan" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email">Email address</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-phone">Phone number</label>
+          <input type="tel" id="reg-phone" placeholder="+20 100 000 0000" autocomplete="tel" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" placeholder="At least 6 characters" minlength="6" autocomplete="new-password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-confirm">Confirm password</label>
+          <input type="password" id="reg-confirm" placeholder="Repeat your password" autocomplete="new-password" required>
+        </div>
+
+        <!-- Shown by auth.js when the passwords do not match -->
+        <p id="register-error" class="error-text"></p>
+
+        <button type="submit" class="btn btn-block">Register</button>
+
+        <p class="switch-text">
+          Already have an account?
+          <button type="button" id="go-login" class="link-btn">Back to login</button>
+        </p>
+      </form>
+
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>

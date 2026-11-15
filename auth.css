@@ -1,0 +1,311 @@
+/* ==========================================================
+   style.css  -  COMBINED SHARED & AUTHENTICATION STYLES
+   ========================================================== */
+
+/* ---------- 1. Colors and settings (CSS variables) ---------- */
+:root {
+  --navy: #102b46;        /* dark navy: headings, sidebar later */
+  --blue: #2878c8;        /* primary blue: main buttons, links */
+  --blue-dark: #1f64a8;   /* darker blue for hover */
+  --bg: #f3f6fa;          /* light page background */
+  --white: #ffffff;
+  --green: #22a06b;       /* available / confirmed */
+  --red: #dc5555;         /* occupied / cancelled */
+
+  --text: #1b3149;        /* normal text */
+  --muted: #587087;       /* secondary text */
+  --border: #d5dfea;      /* thin lines around inputs */
+
+  --radius: 12px;         /* rounded corners everywhere */
+  --font: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+
+/* ---------- 2. Basic reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--blue-dark);
+}
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--blue);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--blue-dark);
+  color: var(--white);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- 4. Form fields ---------- */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.form-group input:focus {
+  outline: 3px solid rgba(40, 120, 200, 0.3);
+  border-color: var(--blue);
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid rgba(40, 120, 200, 0.5);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   AUTHENTICATION PAGE STYLES 
+   ========================================================== */
+
+body.auth-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(105deg,
+      rgba(16, 43, 70, 0.92) 0%,
+      rgba(16, 43, 70, 0.6) 55%,
+      rgba(16, 43, 70, 0.3) 100%),
+    url("background.jpg") center / cover no-repeat fixed;
+}
+
+.auth-layout {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  align-items: center;
+  gap: 64px;
+}
+
+.auth-intro {
+  color: var(--white);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.brand svg {
+  width: 36px;
+  height: 36px;
+}
+
+.auth-intro h1 {
+  max-width: 14ch;
+  margin-bottom: 16px;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.auth-intro p {
+  max-width: 42ch;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-card {
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 20px 50px rgba(8, 24, 41, 0.35);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  padding: 4px;
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.tabs button:focus-visible {
+  outline: 3px solid rgba(40, 120, 200, 0.5);
+  outline-offset: 2px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel h2 {
+  margin-bottom: 4px;
+  font-size: 1.5rem;
+  color: var(--navy);
+}
+
+.panel .subtitle {
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+.switch-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.role-options {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.role-options label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.role-options input {
+  accent-color: var(--blue);
+}
+
+.role-options label:has(input:checked) {
+  border-color: var(--blue);
+  background: #eaf2fb;
+}
+
+.role-options input:focus-visible,
+.link-btn:focus-visible {
+  outline: 3px solid rgba(40, 120, 200, 0.5);
+  outline-offset: 2px;
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: var(--blue-dark);
+}
+
+.error-text {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
+  }
+
+  .brand {
+    margin-bottom: 24px;
+  }
+
+  .auth-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .auth-card {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 24px 20px;
+  }
+}
