@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Dashboard | Airport Booking System</title>
+
+  <!-- Font (needs internet; the page still works without it) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="web-project/auth.css">
+  <link rel="stylesheet" href="manager.css">
+</head>
+
+<body>
+  <div class="manager-layout">
+
+    <!-- ===== SIDEBAR  ===== -->
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+        <span>SkyPort</span>
+      </div>
+
+      <a href="manager-dashboard.html" class="active">Dashboard</a>
+      <a href="manage-flights.html">Manage Flights</a>
+      <a href="gates-baggage.html">Gates &amp; Baggage</a>
+      <a href="web-project/login.html">Logout</a>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+
+      <div class="page-header">
+        <h1>Welcome </h1>
+        <p>A quick summary of airport activity.</p>
+      </div>
+
+      <!-- Statistics (all zero for now) -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <p>Total Flights</p>
+          <strong>0</strong>
+        </div>
+        <div class="stat-card">
+          <p>Total Airplanes</p>
+          <strong>0</strong>
+        </div>
+        <div class="stat-card">
+          <p>Registered Passengers</p>
+          <strong>0</strong>
+        </div>
+        <div class="stat-card">
+          <p>Available Seats</p>
+          <strong>0</strong>
+        </div>
+      </section>
+
+      <!-- The two main buttons -->
+      <section class="actions-row">
+        <a href="manage-flights.html" class="btn">Add / Edit / Delete Flights</a>
+        <a href="gates-baggage.html" class="btn btn-outline">Gates &amp; Baggage</a>
+      </section>
+
+      <!-- Available flights (empty for now) -->
+      <section class="card">
+        <h2>Available Flights</h2>
+
+        <div class="table-wrap">
+          <table>
+            
+              <tr>
+                <th>Flight No.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Airplane</th>
+                <th>Status</th>
+              </tr>
+
+              <!-- delete this row when real flights are added -->
+              <tr>
+                <td colspan="7"></td>
+              </tr>
+            
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

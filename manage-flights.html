@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Flights | Airport Booking System</title>
+
+  <!-- Font (needs internet; the page still works without it) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared styles (../ means "go up one folder"), then manager styles -->
+  <link rel="stylesheet" href="web-project/auth.css">
+  <link rel="stylesheet" href="manager.css">
+</head>
+
+<body>
+  <div class="manager-layout">
+
+    <!-- ===== SIDEBAR (same on every manager page) ===== -->
+    <nav class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+        </svg>
+        <span>SkyPort</span>
+      </div>
+
+      <a href="manager-dashboard.html">Dashboard</a>
+      <a href="manage-flights.html" class="active">Manage Flights</a>
+      <a href="gates-baggage.html">Gates &amp; Baggage</a>
+      <a href="../login.html">Logout</a>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+
+      <div class="page-header">
+        <h1>Manage Flights</h1>
+        <p>Add a new flight, or edit and delete existing ones.</p>
+      </div>
+
+      <!-- ========== ADD / EDIT FLIGHT FORM ==========
+           The same form is used for adding and for editing.
+           When you click Edit in the table, this form will be filled
+           with that flight's information (done later with JavaScript). -->
+      <section class="card">
+        <h2>Add / Edit Flight</h2>
+
+        <form action="manage-flights.html">
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="flight-number">Flight number</label>
+              <input type="text" id="flight-number" placeholder="FL101" required>
+            </div>
+
+            <div class="form-group">
+              <label for="airplane">Airplane</label>
+              <select id="airplane" required>
+                <option value="">Select an airplane</option>
+                <option>Boeing 737</option>
+                <option>Airbus A320</option>
+                <option>Boeing 777</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="from">Departure airport</label>
+              <input type="text" id="from" placeholder="Cairo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="to">Destination airport</label>
+              <input type="text" id="to" placeholder="Dubai" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dep-date">Departure date</label>
+              <input type="date" id="dep-date" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dep-time">Departure time</label>
+              <input type="time" id="dep-time" required>
+            </div>
+
+            <div class="form-group">
+              <label for="arr-date">Arrival date</label>
+              <input type="date" id="arr-date" required>
+            </div>
+
+            <div class="form-group">
+              <label for="arr-time">Arrival time</label>
+              <input type="time" id="arr-time" required>
+            </div>
+
+            <div class="form-group">
+              <label for="status">Flight status</label>
+              <select id="status" required>
+                <option>Scheduled</option>
+                <option>Boarding</option>
+                <option>Departed</option>
+                <option>Arrived</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="btn">Save Flight</button>
+            <button type="reset" class="btn btn-outline">Clear Form</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ========== ALL FLIGHTS TABLE (empty for now) ========== -->
+      <section class="card">
+        <h2>All Flights</h2>
+
+        <div class="table-wrap">
+          <table>
+            
+              <tr>
+                <th>Flight No.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Airplane</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+
+             
+
+              <!-- Example of what ONE flight row will look like later:
+              <tr>
+                <td>FL101</td>
+                <td>Cairo</td>
+                <td>Dubai</td>
+                <td>20 Nov</td>
+                <td>10:30</td>
+                <td>14:45</td>
+                <td>Boeing 737</td>
+                <td><span class="badge badge-green">Scheduled</span></td>
+                <td>
+                  <button class="btn btn-small">Edit</button>
+                  <button class="btn btn-small btn-danger">Delete</button>
+                </td>
+              </tr>
+              -->
+          
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
